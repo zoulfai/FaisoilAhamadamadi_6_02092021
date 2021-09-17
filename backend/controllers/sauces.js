@@ -71,7 +71,7 @@ exports.getAllSauce = (req, res, next) => {
 exports.likeSauce = (req, res, next) => {
   const like = req.body.like;
   switch(like){
-        //l'utilisateur aime : on ajoute son id au tableau et on incrémente les likes
+        
         case 1 :
             Sauce.updateOne({_id : req.params.id}, {$inc : {likes : +1 },
             $push : { usersLiked : req.body.userId}
@@ -80,7 +80,7 @@ exports.likeSauce = (req, res, next) => {
               .catch(error => res.status(500).json({error}))       
         break;
 
-        //l'utilisateur n'aime pas : on ajoute son id au tableau et on incrémente les likes
+        
         case -1 :
           Sauce.updateOne({_id : req.params.id}, {
             $push : { usersDisliked : req.body.userId}, $inc : {dislikes : +1 }
@@ -89,7 +89,7 @@ exports.likeSauce = (req, res, next) => {
               .catch(error => res.status(500).json({ error }))
         break;
 
-        //l'utilisateur annule son choix : on retire l'utilisateur du tableau et on désincrémente les likes ou dislikes suivant le tableau dans lequel il se trouvait
+       
         case 0 :  
           Sauce.findOne({_id : req.params.id})
               .then(sauce => {
