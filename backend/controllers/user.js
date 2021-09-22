@@ -1,9 +1,9 @@
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt'); // permet de hash le mdp
+const jwt = require('jsonwebtoken'); //permet de générer des jetons de connexion
 const User = require('../models/User')
 
 
-
+//gestion de creation d'utilisateur
 exports.signup = (req, res, next) => {
     bcrypt.hash(req.body.password, 10)
       .then(hash => {
@@ -17,6 +17,8 @@ exports.signup = (req, res, next) => {
       })
       .catch(error => res.status(500).json({ error }));
   };
+
+  //gestion de la connexion
   exports.login = (req, res, next) => {
     User.findOne({ email: req.body.email })
       .then(user => {

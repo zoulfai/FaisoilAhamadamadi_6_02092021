@@ -1,4 +1,7 @@
 const mongodbErrorHandler = require ('mongoose-mongodb-errors');
+//renvoie une erreur complete
+
+// schema de la sauce
 const mongoose = require('mongoose');
 
 
