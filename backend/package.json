@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "start": "run-script-os",
+    "start": "node server.js",
     "start:linux:darwin": "concurrently \"node ./node_modules/.bin/http-server -a localhost -p 8081\"  \"sleep 1 && open http://localhost:8081\"",
     "start:win32": "node node_modules/live-server/live-server --port=8081"
   },
@@ -22,7 +22,7 @@
     "mongoose-mongodb-errors": "0.0.2",
     "mongoose-unique-validator": "^2.0.3",
     "multer": "^1.4.3",
-    "node-sass": "^6.0.1",
-    "run-script-os": "^1.0.7"
+    "run-script-os": "^1.0.7",
+    "sass": "^1.79.4"
   }
 }
